@@ -1,0 +1,91 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_SIZE_X			100
+#define CHOICE_SIZE_Y			20
+
+#define CHOICE_X_START			30
+#define CHOICE_Y_START			50
+
+#include "ui_mp/menustyle.inc"
+#include "ui_mp/choices_setup_teams.menu"
+
+
+{
+	menuDef 
+	{
+		onEsc
+		{
+		}
+		name "buymenu"
+		visible 0
+		fullscreen 0
+		rect 0 0 240 320
+		focusColor COLOR_FOCUSED
+		style WINDOW_STYLE_FILLED
+		border 1
+		popup
+
+		itemDef 
+		{
+			name window
+			group grpControlbutton
+			rect 0 -20 300 680
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .1 .1 .1 .1
+			forecolor 1 1 1 1
+			backcolor 0 0 0 .25
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			name window2
+			group grpControlbutton
+			rect 2 -20 296 45	
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .1 .1 .1 .2
+			forecolor 1 1 1 1
+			backcolor 1 1 1 .25
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			name confirm
+			text "Weapon Buy Menu" 
+			style WINDOW_STYLE_FILLED
+			textscale TEXTSIZE_SMALL
+			rect 0 20 240 320
+			textalign ITEM_ALIGN_CENTER
+			textalignx -55
+			textaligny 3
+			textfont UI_FONT_NORMAL
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+		
+		CHOICE_BUTTON( 1, "1[^7Inventory^1]",  scriptMenuResponse "inventory"; )
+		CHOICE_BUTTON( 2, "1[^7Pistols^1]",  scriptMenuResponse "pistol"; )
+		CHOICE_BUTTON( 3, "1[^7Assault Guns^1]",  scriptMenuResponse "assault"; )
+		CHOICE_BUTTON( 4, "1[^7Sub Machine Guns^1]",  scriptMenuResponse "SMG"; )
+		CHOICE_BUTTON( 5, "1[^7Heavy Machine Guns^1]", scriptMenuResponse "LMG";)
+		CHOICE_BUTTON( 6, "1[^7Shotguns^1]",  scriptMenuResponse "shotgun"; )
+		CHOICE_BUTTON( 7, "1[^7Sniper Rifles^1]",  scriptMenuResponse "sniper"; )
+		CHOICE_BUTTON( 8, "1[^7Explosives & Grenades^1]",  scriptMenuResponse "explsovies"; )
+		CHOICE_BUTTON( 9, "1[^7Skills & Equipment^1]",  scriptMenuResponse "skills"; )
+		
+		CHOICE_BUTTON( 11, "^1[^7Exit Menu^1]", close self; )
+		
+		
+
+	}
+}
+
+
+

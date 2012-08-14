@@ -1,0 +1,107 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_GROUP			"quickmessage"
+
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+#include "ui_mp/popupstyle.inc"	
+#include "ui/choices_setup_popmenu.menu"
+
+#undef CHOICE_SIZE_X
+#define CHOICE_SIZE_X			186
+
+#undef CHOICE_POPUP_BACKCOLOR
+#define CHOICE_POPUP_BACKCOLOR  0.2 0.2 0.22 0.65
+
+#define ORIGIN_QUICKMESSAGEWINDOW		0 16
+
+{
+	menuDef
+	{
+		IMPROVED_POPUP_SETUP_ONOPEN( quickmessage, 10, 4, 210, ;, setDvar cl_bypassMouseInput "1";, 0 )
+		onClose{ setDvar cl_bypassMouseInput "0" }
+		
+		CHOICE_POPMENU_TITLE( "^0[^7BTD^0] ^7BTD InGame Menu " )
+		
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			16 20 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^71^2] ^7- Quick Messages"
+			decoration
+		}
+		execKey "1" { close quickmessage; open quickmessagenew }
+		
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			16 52 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^3[^72^3] ^7- Music Menu"
+			decoration
+		}
+		execKey "2" { scriptMenuResponse "2"; close quickmessage;} 
+	
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			16 84 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^1[^73^1] ^7- Player Menu"
+			decoration
+		}
+		execKey "3" { close quickmessage; open client }
+
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			16 116 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^4[^74^4] ^7- Admin Menu"
+			decoration
+		}
+		execKey "4" { scriptMenuResponse "4"; close quickmessage;} 
+	
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			16 164 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^0[^7ESC^0] ^7- Exit Menu"
+			decoration
+		}
+	}
+}

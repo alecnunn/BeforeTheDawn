@@ -1,0 +1,100 @@
+,,"If the first column for a row is blank, then the row is ignored"
+,"If the first column for a row is blank, then the row is ignored",
+# The first non-comment line of a sound alias file specifies the key name for all values appearing in this column.,,
+"# This means it is safe to swap entire columns around, though you should never swap partial columns.",,
+"# You can invent new keys, but the game will ignore them if it doesn't know about them.",,
+"# You can leave out keys, but the ""name"" and ""file"" keys must always be present.",,
+
+,name,name of the alias that is used to play this sound (required)
+,sequence,"used to uniquely identify alias entries when more than one sound goes to an alias, used only to catch unwanted duplicates (default = 0)"
+,file,the name of the file that contains the sound data (required)
+,vol_min,"0 is silent, 1 is full volume (default = 1)"
+,vol_max,"0 is silent, 1 is full volume (default = same as vol_min)"
+,vol_mod,"blank causes no effect on vol_min and vol_max, otherwise the string must match a string in the volumemodgroups.def file and the value in that file corresponding to that string will be used to adjust vol_min and vol_max, clamped to the valid range"
+,pitch_min,"1 is normal playback, 2 is twice as fast, 0.5 is half as fast (default = 1)"
+,pitch_max,"1 is normal playback, 2 is twice as fast, 0.5 is half as fast (default = same as pitch_min)"
+,dist_min,"within this distance in inches, the sound is always full volume (default = 120)"
+,dist_max,"outside this distance in inches, the sound is not started.  If left blank or set to 0, the sound will play from any distance.  This does not affect sound volume falloff."
+,channel,"auto, menu, weapon, voice, item, body, local, music, announcer (default = auto)"
+,type,primed (a streamed sound which gets primed on some platforms) / streamed / loaded (default = loaded)
+,probability,weight to use for the weighted probability of playing this sound instead of another sound (default = 1)
+,loop,"whether this sound is ""looping"" or ""nonlooping"" (default = ""nonlooping"")"
+,masterslave,"if ""master"", this is a master sound.  If a number, then this sound's volume will be multiplied by that number (a percentage between 0 and 1) any master sound is playing.  If blank, then neither master nor slave."
+,loadspec,"space-separated list of which maps should use this alias; eg, ""burnville dawnville"".  If blank, the alias is used on all maps."
+,compression,"a string corresponding to an entry in ""XMAUpdate.tbl"" which is used to determine compression by XMAUpdate.exe"
+,secondaryaliasname,"defined the name of an additional sound alias to play in addition to the current alias being played. Note that it is an error for the secondaryalias to also define a secondaryaliasname (eg, if B is a secondaryalias of A, B is not allowed to have its own secondaryalias)."
+,volumefalloffcurve,if blank uses the linear curve which can not be changed. A string 'XXXX' corresponds to the curve defined by the file 'soundaliases/XXXX.vfcurve'
+,startdelay,defaults to no delay. The value is the number of milliseconds to delay starting the sound by
+,speakermap,if blank uses the default speakermappings which cannot be changed. A string 'XXXX' corresponds to the speakermap defined by the file 'soundaliases/XXXX.spkrmap'. 
+,reverb,"blank means the alias is affected normally by wet and dry levels, ""fulldrylevel"" forces the alias to use a full drylevel (ignoring the global drylevel), ""nowetlevel"" forces the alias to use no wetlevel (ignoring the global wetlevel)"
+,lfe percentage,this determines what percentage of the highest calculated spatialized speaker volume should be passed to the LFE. blank means no LFE for the sound
+,center percentage,this determines what percentage of the volume should be redirected to the center channel (equal percentage taken from all speakers).
+,platform,"used by XMAUpdate to determine whether the alias should be processed for a particular platform.  If blank, process for all platforms.  Platforms are PC, XB, PS, WI.  Multiple values should be separated by spaces.  !PC will exclude alias from PC but include in all other platforms.  PC will only include alias for PC.  !PC XB is invalid."
+,envelop_min,any sounds within this distance of the listener will use the full envelop percentage,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,envelop_max,sounds between enevlop_min and envelop_max use a fraction of the envelop percentage,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,envelop percentage,amount of omnidirectionality to apply,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+name,sequence,file,vol_min,vol_max,vol_mod,pitch_min,pitch_max,dist_min,dist_max,channel,type,probability,loop,masterslave,loadspec,subtitle,compression,secondaryaliasname,volumefalloffcurve,startdelay,speakermap,reverb,lfe percentage,center percentage,platform,envelop_min,envelop_max,envelop percentage,conversion
+
+gib,1,btd/gib_01.wav,0.9,1,,0.9,1,500,2000,auto,,,,,,,,,,,,,,,,,,,
+gib,2,btd/gib_02.wav,0.9,1,,0.9,1,500,2000,auto,,,,,,,,,,,,,,,,,,,
+gib,3,btd/gib_03.wav,0.9,1,,0.9,1,500,2000,auto,,,,,,,,,,,,,,,,,,,
+gib_imp,1,btd/gib_imp1.wav,0.9,1,,0.9,1,300,700,auto,,,,,,,,,,,,,,,,,,,
+gib_imp,2,btd/gib_imp2.wav,0.9,1,,0.9,1,300,700,auto,,,,,,,,,,,,,,,,,,,
+gib_imp,3,btd/gib_imp3.wav,0.9,1,,0.9,1,300,700,auto,,,,,,,,,,,,,,,,,,,
+gib_imp,4,btd/gib_splt1.wav,0.9,1,,0.9,1,300,700,auto,,,,,,,,,,,,,,,,,,,
+
+zombie_moan,1,btd/zom1.wav,0.9,1,,0.9,1,500,1200,auto,,,,,,,,,,,,,,,,,,,
+zombie_moan,2,btd/zom2.wav,0.9,1,,0.9,1,500,1200,auto,,,,,,,,,,,,,,,,,,,
+zombie_moan,3,btd/zom3.wav,0.9,1,,0.9,1,500,1200,auto
+zombie_moan,4,btd/zom4.wav,0.9,1,,0.9,1,500,1200,auto
+zombie_moan,5,btd/zom5.wav,0.9,1,,0.9,1,500,1200,auto
+
+zombie_kill,,btd/zombie_moan.wav,0.9,1,,0.9,1,300,700,auto
+
+zom_pain,1,btd/pain/PainMale01.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,2,btd/pain/PainMale02.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,3,btd/pain/PainMale03.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,4,btd/pain/PainMale04.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,5,btd/pain/PainMale05.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,6,btd/pain/PainMale06.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,7,btd/pain/PainMale07.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,8,btd/pain/PainMale08.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,9,btd/pain/PainMale09.wav,0.9,1,,0.9,1,500,1200,auto
+zom_pain,10,btd/pain/PainMale10.wav,0.9,1,,0.9,1,500,1200,auto
+
+zom_attack,1,btd/attack/attackMale01.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,2,btd/attack/attackMale02.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,3,btd/attack/attackMale04.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,4,btd/attack/attackMale05.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,5,btd/attack/attackMale06.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,6,btd/attack/attackMale07.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,7,btd/attack/attackMale10.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,8,btd/attack/attackMale11.wav,0.9,1,,0.9,1,500,1200,auto
+zom_attack,9,btd/attack/attackMale13.wav,0.9,1,,0.9,1,500,1200,auto
+
+killingspree,,btd/ut3/killingspree.wav,1,1,max,1,1,10000,20000,auto
+rampage,,btd/ut3/rampage.wav,1,1,max,1,1,10000,20000,auto
+dominating,,btd/ut3/dominating.wav,1,1,max,1,1,10000,20000,auto
+unstoppable,,btd/ut3/unstoppable.wav,1,1,max,1,1,10000,20000,auto
+slaughter,,btd/ut3/manslaughter.wav,1,1,max,1,1,10000,20000,auto
+monster,,btd/ut3/monsterkill.wav,1,1,max,1,1,10000,20000,auto,,,
+holyshit,,btd/ut3/megakill.wav,1,1,max,1,1,10000,20000,auto,,,
+godlike,,btd/ut3/godlike.wav,1,1,max,1,1,10000,20000,auto,,,
+
+headshot,,btd/ut3/headshot.wav,1,1,max,1,1,10000,20000,auto,,,
+headhunter,,btd/ut3/headhunter.wav,1,1,max,1,1,10000,20000,auto,,,
+bullseye,,btd/ut3/bullseye.wav,1,1,max,1,1,10000,20000,auto,,,
+multikill,,btd/ut3/multikill.wav,1,1,max,1,1,10000,20000,auto,,,
+
+zom_track_mt_0,,michel_top/dark_night.mp3,1,1,,1,1,10000,100000,local2,streamed
+zom_track_mt_1,,michel_top/premonition.mp3,1,1,,1,1,10000,100000,local2,streamed
+zom_track_mt_2,,michel_top/regression.mp3,1,1,,1,1,10000,100000,local2,streamed
+zom_track_mt_3,,michel_top/dead_pool.mp3,1,1,,1,1,10000,100000,local2,streamed
+zom_track_mt_4,,michel_top/venom.mp3,1,1,,1,1,10000,100000,local2,streamed
+
+zom_track_cust_0,,custom/track_1.mp3,1,1,ambience,1,1,10000,100000,local2,streamed
+zom_track_cust_1,,custom/track_2.mp3,1,1,ambience,1,1,10000,100000,local2,streamed
+zom_track_cust_2,,custom/track_3.mp3,1,1,ambience,1,1,10000,100000,local2,streamed
+zom_track_cust_3,,custom/track_4.mp3,1,1,ambience,1,1,10000,100000,local2,streamed
+zom_track_cust_4,,custom/track_5.mp3,1,1,ambience,1,1,10000,100000,local2,streamed

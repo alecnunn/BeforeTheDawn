@@ -1,0 +1,83 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_SIZE_X			100
+#define CHOICE_SIZE_Y			50
+
+#define CHOICE_X_START			0
+#define CHOICE_Y_START			50
+
+
+
+#include "ui_mp/menustyle.inc"
+#include "ui_mp/choices_setup_teams.menu"
+
+
+{
+	menuDef 
+	{
+		onEsc
+		{
+		}
+		name "pistol"
+		visible 0
+		fullscreen 0
+		rect 260 0 320 400
+		focusColor COLOR_FOCUSED
+		style WINDOW_STYLE_FILLED
+		border 1
+		popup
+
+		itemDef 
+		{
+			name window
+			group grpControlbutton
+			rect 0 -20 235 400
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .1 .1 .1 .1
+			forecolor 1 1 1 1
+			backcolor 0 0 0 .25
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			name window2
+			group grpControlbutton
+			rect 2 -18 231 20	
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .1 .1 .1 .2
+			forecolor 1 1 1 1
+			backcolor 0 0 0 .25
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			name confirm
+			text "Pick a Pistol" 
+			style WINDOW_STYLE_FILLED
+			textscale TEXTSIZE_SMALL
+			rect 116 20 110 20
+			textalign ITEM_ALIGN_CENTER
+			textalignx -55
+			textaligny 3
+			textfont UI_FONT_NORMAL
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+
+		CHOICE_BUTTON( 1, "Desert Eagle", ; scriptMenuResponse "1";)
+		CHOICE_BUTTON( 2, "Beretta", ; scriptMenuResponse "2"; )
+		CHOICE_BUTTON( 3, "Usp.45", ; scriptMenuResponse "3";)
+		CHOICE_BUTTON( 4, "Colt .45", ; scriptMenuResponse "4"; )
+		CHOICE_BUTTON(5,"Close menu's", ; close self;)
+		
+
+	}
+}

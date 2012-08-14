@@ -1,0 +1,179 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_GROUP			"quickcommands"
+
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+#include "ui_mp/popupstyle.inc"	
+#include "ui/choices_setup_popmenu.menu"
+
+#undef CHOICE_SIZE_X
+#define CHOICE_SIZE_X			186
+
+#undef CHOICE_POPUP_BACKCOLOR
+#define CHOICE_POPUP_BACKCOLOR  0.2 0.2 0.22 0.65
+
+#define ORIGIN_QUICKMESSAGEWINDOW		0 16
+
+{
+	menuDef
+	{
+		IMPROVED_POPUP_SETUP_ONOPEN( quickcommands, 10, 4, 210, ;, setDvar cl_bypassMouseInput "1";, 0 )
+		onClose{ setDvar cl_bypassMouseInput "0" }
+		
+		CHOICE_POPMENU_TITLE( "^0[^7BTD^0] ^7Quick Commands " )
+		
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 20 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^71^2] ^7- Follow Me"
+			decoration
+		}
+		execKey "1" { scriptMenuResponse "1"; close quickcommands;}
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 36 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^72^2] ^7- Move In"
+			decoration
+		}
+		execKey "2" { scriptMenuResponse "2"; close quickcommands}
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 52 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^73^2] ^7- Fall Back"
+			decoration
+		}
+		execKey "3" { scriptMenuResponse "3"; close quickcommands}
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 68 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^74^2] ^7- Suppressing Fire"
+			decoration
+		}
+		execKey "4" { scriptMenuResponse "4"; close quickcommands;}
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 84 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^75^2] ^7- Attack Left Flank"
+			decoration
+		}
+		execKey "5" { scriptMenuResponse "5"; close quickcommands;}
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 100 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^76^2] ^7- Attack Right Flank"
+			decoration
+		}
+		execKey "6" { scriptMenuResponse "6"; close quickcommands;}
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 116 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^77^2] ^7- Hold This Position"
+			decoration
+		}
+		execKey "7" { scriptMenuResponse "7"; close quickcommands;}
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 132 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^2[^78^2] ^7- Regroup"
+			decoration
+		}
+		execKey "8" { scriptMenuResponse "8"; close quickcommands;}
+	
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			16 164 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			text			"^0[^7ESC^0] ^7- Exit Menu"
+			decoration
+		}
+	}
+}
